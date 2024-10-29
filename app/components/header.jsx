@@ -52,13 +52,13 @@ export default function Header() {
                   </div>
                 </div>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-indigo-600 dark:bg-indigo-800">
+              <SheetContent side="right" className="bg-black-600 dark:bg-indigo-800">
                 <ul className="text-2xl flex flex-col items-center justify-center space-y-6 mt-16 gap-7">
                   {["Home", "Services", "About Me", "Portfolio", "Contact Me"].map((item) => (
                     <li key={item}>
                       <a
                         href={`#${item.toLowerCase().replace(/ /g, "")}`}
-                        className="lg:text-2xl md:text-base text-sm font-light text-[#c2410c] hover:text-gray-100 transition-transform duration-400"
+                        className="lg:text-2xl md:text-base text-sm font-light text-[#c2410c] hover:text-gray-100 transition-transform text-xl font-semibold transition duration-300"
                         onClick={() => setIsOpen(false)}
                       >
                         {item}

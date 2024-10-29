@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { useState, useEffect } from 'react';
 import { FlipWords } from '@/components/ui/flip-words';
 import About from './components/about';
+import MyForm from './components/MyForm';
 
 export default function Home() {
   const links = [
@@ -69,7 +70,7 @@ export default function Home() {
 
             {/* Flipping Words Effect */}
             <h1 className="font-rubik text-[#c2410c] text-6xl name_underline max-sm:text-6xl font-bold whitespace-nowrap mt-8">
-              <FlipWords words={["Software Developer","UI Designer", "Generative AI", "Gamer by Passion", "Video Editor"]} />
+              <FlipWords words={["Software Developer","UI Designer", "Generative AI", "Gamer", "Video Editor"]} />
             </h1>
 
             {/* Social Links */}
@@ -107,6 +108,7 @@ export default function Home() {
 
         {/* About Section */}
         <About/>
+        <MyForm></MyForm>
       </main>
     </>
   );
