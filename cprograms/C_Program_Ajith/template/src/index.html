@@ -1,0 +1,51 @@
+import React from 'react';
+import { motion, useAnimation, useScroll, useSpring } from 'framer-motion';
+
+const ScrollingSection = () => {
+  const { scrollY } = useScroll();
+  const controls = useAnimation();
+
+  // Spring values to animate the content based on scroll
+  const y = useSpring(scrollY, {
+    damping: 20,
+    stiffness: 100,
+  });
+
+  React.useEffect(() => {
+    controls.start({
+      opacity: scrollY.get() > 100 ? 1 : 0,
+      transform: scrollY.get() > 100 ? 'translateY(0)' : 'translateY(20px)',
+    });
+  }, [scrollY, controls]);
+
+  return (
+    <section className="flex h-screen overflow-hidden">
+      <div className="w-1/2 bg-gray-200">
+        <img
+          src="https://paperlike.com/cdn/shop/files/Paperlike_s_Nanodots_provide_resistance.jpg?v=1694562962"
+          alt="Nanodots"
+          className="w-full h-full object-cover"
+        />
+        <img
+          src="https://paperlike.com/cdn/shop/files/Paperlike_offers_maximum_transparency.jpg?v=1694563083"
+          alt="Transparency"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <motion.div
+        className="w-1/2 flex flex-col justify-center p-8 bg-white"
+        animate={controls}
+      >
+        <h1 className="text-3xl font-bold mb-4">A difference you can feel.</h1>
+        <p className="text-lg">
+          Nanodots are the teensy, tiny micro-beads responsible for giving Paperlike its unique, papery feel.
+          They provide haptic feedback in the form of ever-so-slight vibrations that emulate the natural drag and resistance of sketchbook paper.
+          You can feel the difference as you write and draw on your iPad.
+          The sensory feedback provides additional information that allows you to create more precise lines, whether you’re taking notes or working on your next artistic masterpiece!
+        </p>
+      </motion.div>
+    </section>
+  );
+};
+
+export default ScrollingSection;
